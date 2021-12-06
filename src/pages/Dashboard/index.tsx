@@ -1,7 +1,17 @@
 import React from "react";
 
+// components
+import ContentHeader from "../../components/ContentHeader";
+
+// style
+import { Container } from "./styles";
+
 const Dashboard: React.FC = () => {
-  return <h1>Dashboard</h1>;
+  return (
+    <Container>
+      <ContentHeader />
+    </Container>
+  );
 };
 
 export default Dashboard;
