@@ -1,6 +1,11 @@
+// -------------------------------------------------
+// packages
+// -------------------------------------------------
 import React from "react";
 
+// -------------------------------------------------
 // style
+// -------------------------------------------------
 import { Container, TitleContainer, Controllers } from "./styles";
 
 const ContentHeader: React.FC = () => {
