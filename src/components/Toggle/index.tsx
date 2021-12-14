@@ -6,7 +6,7 @@ import React from "react";
 // -------------------------------------------------
 // styles
 // -------------------------------------------------
-import { Container, ToggleLabel, ToggleSelector } from "./style";
+import { Container, ToggleLabel, ToggleSelector } from "./styles";
 
 const Toggle: React.FC = () => {
   return (
