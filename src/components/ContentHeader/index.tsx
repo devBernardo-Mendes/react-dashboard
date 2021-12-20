@@ -21,7 +21,7 @@ import { options } from "../utils";
 // -------------------------------------------------
 // types
 // -------------------------------------------------
-import {IContentHeaderProps}  from "./types";
+import {IContentHeaderProps}  from "../types";
 
 
 

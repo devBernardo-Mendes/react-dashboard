@@ -8,3 +8,9 @@ export interface IContentHeaderProps {
 export interface ITitleContainerProps {
     lineColor: string;
 }
+export interface ISelectIntupProps {
+    option: {
+        value: string | number;
+        label: string | number;
+    }[],
+}

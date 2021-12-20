@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ITitleContainerProps } from "./types";
+import { ITitleContainerProps } from "../types";
 
 export const Container = styled.div`
     width: 100%;
