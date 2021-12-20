@@ -4,19 +4,27 @@
 import React from "react";
 
 // -------------------------------------------------
-// components
-// -------------------------------------------------
-import ContentHeader from "../../components/ContentHeader";
-
-// -------------------------------------------------
 // style
 // -------------------------------------------------
 import { Container } from "./styles";
 
+// -------------------------------------------------
+// components
+// -------------------------------------------------
+import ContentHeader from "../../components/ContentHeader";
+import SelectInput from "../../components/SelectInput";
+
+// -------------------------------------------------
+// components
+// -------------------------------------------------
+import { options } from "../../components/utils";
+
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      <ContentHeader />
+      <ContentHeader title="Dashboard" lineColor="#FFF">
+        <SelectInput option={options} />
+      </ContentHeader>
     </Container>
   );
 };

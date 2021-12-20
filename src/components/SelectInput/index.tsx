@@ -8,13 +8,18 @@ import React from "react";
 // -------------------------------------------------
 import { Container } from "./styles";
 
-const SelectInput: React.FC = ({ children }) => {
+// -------------------------------------------------
+// types
+// -------------------------------------------------
+import {ISelectIntupProps} from "./types";
+
+const SelectInput: React.FC<ISelectIntupProps> = ({ option }) => {
   return (
     <Container>
       <select name="" id="">
-        <option value="a">a</option>
-        <option value="b">b</option>
-        <option value="c">c</option>
+        {option.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
       </select>
     </Container>
   );
