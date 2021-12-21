@@ -2,6 +2,8 @@
 // packages
 // -------------------------------------------------
 import React from "react";
+import ContentHeader from "../../components/ContentHeader";
+import SelectInput from "../../components/SelectInput";
 
 // -------------------------------------------------
 // style
@@ -9,20 +11,14 @@ import React from "react";
 import { Container } from "./styles";
 
 // -------------------------------------------------
-// components
+// style
 // -------------------------------------------------
-import ContentHeader from "../../components/ContentHeader";
-import SelectInput from "../../components/SelectInput";
-
-// -------------------------------------------------
-// components
-// -------------------------------------------------
-import { options } from "../../components/utils";
+import { options } from "../../utils/utils";
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      <ContentHeader title="Dashboard" lineColor="#FFF">
+      <ContentHeader title="DashBoard" lineColor="#F7931B">
         <SelectInput option={options} />
       </ContentHeader>
     </Container>
