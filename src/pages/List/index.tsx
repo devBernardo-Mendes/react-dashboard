@@ -3,8 +3,16 @@
 // -------------------------------------------------
 import React from "react";
 
-const List: React.FC = () => {
-  return <h1>List</h1>;
-};
+// -------------------------------------------------
+// styles
+// -------------------------------------------------
+import { Container } from "./styles";
 
+const List: React.FC = () => {
+  return (
+    <Container>
+      <h1>List</h1>;
+    </Container>
+  );
+};
 export default List;
