@@ -6,10 +6,10 @@ import styled from "styled-components";
 // -------------------------------------------------
 // types
 // -------------------------------------------------
-import { ITagProps, IContainerProps } from "../types";
+import { ITagProps } from "../types";
 
-export const Container = styled.li<IContainerProps>`
-  background-color: ${(props) => props.color};
+export const Container = styled.li`
+  background-color: ${(props) => props.theme.colors.tertiary};
 
   list-style: none;
   border-radius: 5px;
