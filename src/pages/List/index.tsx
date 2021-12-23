@@ -6,7 +6,7 @@ import React from "react";
 // -------------------------------------------------
 // styles
 // -------------------------------------------------
-import { Container, Content } from "./styles";
+import { Container, Content, Filters } from "./styles";
 // -------------------------------------------------
 // components
 // -------------------------------------------------
@@ -17,14 +17,23 @@ import HistoryFinanceCard from "../../components/HistoryFinanceCard";
 // -------------------------------------------------
 // utils
 // -------------------------------------------------
-import { options } from "../../utils/utils";
+import { months, years } from "../../utils/mock";
 
 const List: React.FC = () => {
   return (
     <Container>
       <ContentHeader title="Saídas" lineColor="#E44C4E">
-        <SelectInput option={options} />
+        <SelectInput option={months} />
+        <SelectInput option={years} />
       </ContentHeader>
+      <Filters>
+        <button type="button" className="tag-fliter">
+          Recorrentes
+        </button>
+        <button type="button" className="tag-fliter">
+          Eventuais
+        </button>
+      </Filters>
       <Content>
         <HistoryFinanceCard
           tagColor="#E44C4E"
