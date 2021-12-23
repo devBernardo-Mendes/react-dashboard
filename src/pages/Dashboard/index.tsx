@@ -13,13 +13,14 @@ import { Container } from "./styles";
 // -------------------------------------------------
 // style
 // -------------------------------------------------
-import { options } from "../../utils/utils";
+import { months, years } from "../../utils/mock";
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
       <ContentHeader title="DashBoard" lineColor="#F7931B">
-        <SelectInput option={options} />
+        <SelectInput option={months} />
+        <SelectInput option={years} />
       </ContentHeader>
     </Container>
   );
