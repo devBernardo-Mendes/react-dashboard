@@ -13,6 +13,5 @@ export const Filters = styled.div`
   justify-content: center;
 
   .tag-filter {
-      
   }
 `;
