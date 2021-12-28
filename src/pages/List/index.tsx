@@ -27,10 +27,10 @@ const List: React.FC = () => {
         <SelectInput option={years} />
       </ContentHeader>
       <Filters>
-        <button type="button" className="tag-filter">
+        <button type="button" className="tag-filter tag-filter-recurrent  ">
           Recorrentes
         </button>
-        <button type="button" className="tag-filter">
+        <button type="button" className="tag-filter tag-filter-eventual">
           Eventuais
         </button>
       </Filters>
