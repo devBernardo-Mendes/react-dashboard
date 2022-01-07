@@ -18,11 +18,14 @@ import HistoryFinanceCard from "../../components/HistoryFinanceCard";
 // utils
 // -------------------------------------------------
 import { months, years } from "../../utils/mock";
+import { IRouteParams } from "../types";
 
-const List: React.FC = () => {
+const List: React.FC<IRouteParams> = ({ match }) => {
+  const { type, lineColor } = match.params;
+
   return (
     <Container>
-      <ContentHeader title="Saídas" lineColor="#E44C4E">
+      <ContentHeader title={type} lineColor={lineColor}>
         <SelectInput option={months} />
         <SelectInput option={years} />
       </ContentHeader>
