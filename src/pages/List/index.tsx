@@ -1,7 +1,7 @@
 // -------------------------------------------------
 // packages
 // -------------------------------------------------
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 // -------------------------------------------------
 // styles
@@ -18,9 +18,21 @@ import HistoryFinanceCard from "../../components/HistoryFinanceCard";
 // utils
 // -------------------------------------------------
 import { months, years } from "../../utils/mock";
-import { IRouteParams } from "../types";
+import { IData, IRouteParams } from "../types";
+import gains from "../../repositories/gains";
+import expenses from "../../repositories/expenses";
 
 const List: React.FC<IRouteParams> = ({ match }) => {
+  //const [data, setData] = useState<IData>([]);
+
+  // const listData = useMemo(() => {
+  //   return type === "entry-balance" ? gains : expenses;
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(listData);
+  // }, []);
+
   const { type, lineColor } = match.params;
 
   return (
