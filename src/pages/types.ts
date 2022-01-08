@@ -6,3 +6,11 @@ export interface IRouteParams {
     };
   };
 }
+
+export interface IData {
+  description: string;
+  amountFormatted: string;
+  frequency: string;
+  dateFormatted: string;
+  tagColor: string;
+}
