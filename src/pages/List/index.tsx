@@ -23,11 +23,11 @@ import gains from "../../repositories/gains";
 import expenses from "../../repositories/expenses";
 
 const List: React.FC<IRouteParams> = ({ match }) => {
-  // const [data, setData] = useState<IData>([]);
+  const [data, setData] = useState<IData[]>([]);
 
   const { type } = match.params;
 
-  const listData = useMemo(() => {
+  const title = useMemo(() => {
     return type === "entry-balance" ? "Entradas" : "Saídas";
   }, [type]);
 
@@ -35,13 +35,28 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     return type === "entry-balance" ? "#F7931B" : "#E44C4E";
   }, [type]);
 
-  // useEffect(() => {
-  //   console.log(listData);
-  // }, []);
+  const listData = useMemo(() => {
+    return type === "entry-balance" ? gains : expenses;
+  }, [type]);
+
+  useEffect(() => {
+    const response = listData.map((item) => {
+      return {
+        id: String(Math.random() * data.length),
+        description: item.description,
+        amountFormatted: item.amount,
+        frequency: item.frequency,
+        dateFormatted: item.date,
+        tagColor: item.frequency === "recorrente" ? "#4E41F0" : "#E44C4E",
+      };
+    });
+
+    setData(response);
+  }, [data.length, listData]);
 
   return (
     <Container>
-      <ContentHeader title={listData} lineColor={lineColor}>
+      <ContentHeader title={title} lineColor={lineColor}>
         <SelectInput option={months} />
         <SelectInput option={years} />
       </ContentHeader>
@@ -54,12 +69,15 @@ const List: React.FC<IRouteParams> = ({ match }) => {
         </button>
       </Filters>
       <Content>
-        <HistoryFinanceCard
-          tagColor="#E44C4E"
-          title="Conta de Luz"
-          subtitle="27/08/2021"
-          amount="R$ 320,98"
-        />
+        {data.map((item) => (
+          <HistoryFinanceCard
+            key={item.id}
+            tagColor={item.tagColor}
+            title={item.description}
+            subtitle={item.dateFormatted}
+            amount={item.amountFormatted}
+          />
+        ))}
       </Content>
     </Container>
   );
