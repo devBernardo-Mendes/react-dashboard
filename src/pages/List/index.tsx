@@ -23,21 +23,25 @@ import gains from "../../repositories/gains";
 import expenses from "../../repositories/expenses";
 
 const List: React.FC<IRouteParams> = ({ match }) => {
-  //const [data, setData] = useState<IData>([]);
+  // const [data, setData] = useState<IData>([]);
 
-  // const listData = useMemo(() => {
-  //   return type === "entry-balance" ? gains : expenses;
-  // }, []);
+  const { type } = match.params;
+
+  const listData = useMemo(() => {
+    return type === "entry-balance" ? "Entradas" : "Saídas";
+  }, [type]);
+
+  const lineColor = useMemo(() => {
+    return type === "entry-balance" ? "#F7931B" : "#E44C4E";
+  }, [type]);
 
   // useEffect(() => {
   //   console.log(listData);
   // }, []);
 
-  const { type, lineColor } = match.params;
-
   return (
     <Container>
-      <ContentHeader title={type} lineColor={lineColor}>
+      <ContentHeader title={listData} lineColor={lineColor}>
         <SelectInput option={months} />
         <SelectInput option={years} />
       </ContentHeader>
