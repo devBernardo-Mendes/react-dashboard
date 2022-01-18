@@ -16,7 +16,7 @@ import { ISelectIntupProps } from "../types";
 const SelectInput: React.FC<ISelectIntupProps> = ({ option }) => {
   return (
     <Container>
-      <select name="" id="">
+      <select>
         {option.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
