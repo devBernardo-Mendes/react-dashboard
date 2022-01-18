@@ -8,6 +8,7 @@ export interface IRouteParams {
 }
 
 export interface IData {
+  id: string;
   description: string;
   amountFormatted: string;
   frequency: string;
