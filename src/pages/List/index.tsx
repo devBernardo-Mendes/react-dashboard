@@ -7,6 +7,7 @@ import React, { useState, useEffect, useMemo } from "react";
 // styles
 // -------------------------------------------------
 import { Container, Content, Filters } from "./styles";
+
 // -------------------------------------------------
 // components
 // -------------------------------------------------
@@ -15,12 +16,18 @@ import SelectInput from "../../components/SelectInput";
 import HistoryFinanceCard from "../../components/HistoryFinanceCard";
 
 // -------------------------------------------------
+// types
+//
+import { IData, IRouteParams } from "../types";
+
+// -------------------------------------------------
 // utils
 // -------------------------------------------------
-import { months, years } from "../../utils/mock";
-import { IData, IRouteParams } from "../types";
-import gains from "../../repositories/gains";
-import expenses from "../../repositories/expenses";
+import { months, years } from "../../utils/shared/optionsDrodown/utils";
+import gains from "../../utils/repositories/gains";
+import expenses from "../../utils/repositories/expenses";
+import formatCurreny from "../../utils/shared/formatMoney/formatedCurrency";
+import formatDate from "../../utils/shared/formatDate/date";
 
 const List: React.FC<IRouteParams> = ({ match }) => {
   const [data, setData] = useState<IData[]>([]);
@@ -44,9 +51,9 @@ const List: React.FC<IRouteParams> = ({ match }) => {
       return {
         id: String(Math.random() * data.length),
         description: item.description,
-        amountFormatted: item.amount,
+        amountFormatted: formatCurreny(Number(item.amount)),
         frequency: item.frequency,
-        dateFormatted: item.date,
+        dateFormatted: formatDate(item.date),
         tagColor: item.frequency === "recorrente" ? "#4E41F0" : "#E44C4E",
       };
     });
