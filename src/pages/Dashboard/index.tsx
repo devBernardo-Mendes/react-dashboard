@@ -13,7 +13,7 @@ import { Container } from "./styles";
 // -------------------------------------------------
 // style
 // -------------------------------------------------
-import { months, years } from "../../utils/mock";
+import { months, years } from "../../utils/utils";
 
 const Dashboard: React.FC = () => {
   return (
