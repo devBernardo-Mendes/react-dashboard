@@ -6,7 +6,7 @@ import React, { useMemo } from "react";
 // -------------------------------------------------
 // utils
 // -------------------------------------------------
-import emojis from "../../utils/emojis";
+import emojis from "../../utils/shared/icons/emojis";
 
 // -------------------------------------------------
 // components

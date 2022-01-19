@@ -7,7 +7,7 @@ import { ThemeProvider } from "styled-components";
 // -------------------------------------------------
 // components
 // -------------------------------------------------
-import Routes from "./routes";
+import Routes from "./utils/routes";
 
 // -------------------------------------------------
 // style
