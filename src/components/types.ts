@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export interface IContentHeaderProps {
   title: string;
@@ -13,6 +13,7 @@ export interface ISelectIntupProps {
     value: string | number;
     label: string | number;
   }[];
+  onChange(event: React.ChangeEvent<HTMLSelectElement>): void | undefined;
 }
 
 export interface IHistoryFinanceCardProps {
