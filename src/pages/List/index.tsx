@@ -31,6 +31,8 @@ import formatDate from "../../utils/shared/formatDate/date";
 
 const List: React.FC<IRouteParams> = ({ match }) => {
   const [data, setData] = useState<IData[]>([]);
+  const [monthSelected, setMonthSelected] = useState<string>();
+  const [yearSelected, setYearSelected] = useState<string>();
 
   const { type } = match.params;
 
@@ -64,8 +66,14 @@ const List: React.FC<IRouteParams> = ({ match }) => {
   return (
     <Container>
       <ContentHeader title={title} lineColor={lineColor}>
-        <SelectInput option={months} />
-        <SelectInput option={years} />
+        <SelectInput
+          option={months}
+          onChange={(e) => setMonthSelected(e.target.value)}
+        />
+        <SelectInput
+          option={years}
+          onChange={(e) => setYearSelected(e.target.value)}
+        />
       </ContentHeader>
       <Filters>
         <button type="button" className="tag-filter tag-filter-recurrent  ">
