@@ -19,7 +19,7 @@ import { Container, TitleContainer, Controllers } from "./styles";
 // -------------------------------------------------
 // types
 // -------------------------------------------------
-import { IContentHeaderProps } from "../types";
+import { IContentHeaderProps } from "./types";
 
 const ContentHeader: React.FC<IContentHeaderProps> = ({
   title,

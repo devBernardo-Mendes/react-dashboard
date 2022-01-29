@@ -18,7 +18,7 @@ import HistoryFinanceCard from "../../components/HistoryFinanceCard";
 // -------------------------------------------------
 // types
 //
-import { IData, IRouteParams } from "../types";
+import { IData, IRouteParams } from "./types";
 
 // -------------------------------------------------
 // utils

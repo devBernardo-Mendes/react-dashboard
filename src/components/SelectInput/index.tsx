@@ -11,7 +11,7 @@ import { Container } from "./styles";
 // -------------------------------------------------
 // types
 // -------------------------------------------------
-import { ISelectIntupProps } from "../types";
+import { ISelectIntupProps } from "./types";
 
 const SelectInput: React.FC<ISelectIntupProps> = ({ option, onChange }) => {
   return (

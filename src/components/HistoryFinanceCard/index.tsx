@@ -11,7 +11,7 @@ import { Container, Tag } from "./styles";
 // -------------------------------------------------
 // types
 // -------------------------------------------------
-import { IHistoryFinanceCardProps } from "../types";
+import { IHistoryFinanceCardProps } from "./types";
 
 const HistoryFinanceCard: React.FC<IHistoryFinanceCardProps> = ({
   tagColor,
