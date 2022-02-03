@@ -13,10 +13,14 @@ import { Container } from "./styles";
 // -------------------------------------------------
 import { ISelectIntupProps } from "./types";
 
-const SelectInput: React.FC<ISelectIntupProps> = ({ option, onChange }) => {
+const SelectInput: React.FC<ISelectIntupProps> = ({
+  option,
+  onChange,
+  defaultValue,
+}) => {
   return (
     <Container>
-      <select onChange={onChange}>
+      <select onChange={onChange} defaultValue={defaultValue}>
         {option.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
