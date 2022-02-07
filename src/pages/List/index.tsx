@@ -2,6 +2,7 @@
 // packages
 // -------------------------------------------------
 import React, { useState, useEffect, useMemo } from "react";
+import { uuid } from "uuidv4";
 
 // -------------------------------------------------
 // styles
@@ -23,11 +24,11 @@ import { IData, IRouteParams } from "./types";
 // -------------------------------------------------
 // utils
 // -------------------------------------------------
-import { months, years } from "../../utils/shared/optionsDrodown/utils";
 import gains from "../../utils/repositories/gains";
 import expenses from "../../utils/repositories/expenses";
 import formatCurreny from "../../utils/shared/formatMoney/formatedCurrency";
 import formatDate from "../../utils/shared/formatDate/date";
+import listOfMonths from "../../utils/shared/optionsDrodown/months";
 
 const List: React.FC<IRouteParams> = ({ match }) => {
   const [data, setData] = useState<IData[]>([]);
@@ -63,7 +64,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
     const formattedData = filteredData.map((item) => {
       return {
-        id: String(new Date().getTime()) + item.amount,
+        id: uuid(),
         description: item.description,
         amountFormatted: formatCurreny(Number(item.amount)),
         frequency: item.frequency,
@@ -74,6 +75,34 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
     setData(formattedData);
   }, [data.length, listData, monthSelected, yearSelected]);
+
+  const years = useMemo(() => {
+    let uniqueYears: number[] = [];
+
+    listData.forEach((item) => {
+      const date = new Date(item.date);
+      const year = date.getFullYear();
+
+      if (!uniqueYears.includes(year)) {
+        uniqueYears.push(year);
+      }
+    });
+    return uniqueYears.map((year) => {
+      return {
+        value: year,
+        label: year,
+      };
+    });
+  }, [listData]);
+
+  const months = useMemo(() => {
+    return listOfMonths.map((month, index) => {
+      return {
+        value: index + 1,
+        label: month,
+      };
+    });
+  }, []);
 
   return (
     <Container>
