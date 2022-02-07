@@ -5,14 +5,14 @@ export default [
     amount: "150.55",
     type: "saída",
     frequency: "recorrente",
-    date: "2020-01-10",
+    date: "2022-01-10",
   },
   {
     description: "Água",
     amount: "75.55",
     type: "saída",
     frequency: "recorrente",
-    date: "2020-01-15",
+    date: "2022-01-15",
   },
   {
     description: "Telefone",
