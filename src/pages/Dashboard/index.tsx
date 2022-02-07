@@ -13,14 +13,13 @@ import { Container } from "./styles";
 // -------------------------------------------------
 // style
 // -------------------------------------------------
-import { months, years } from "../../utils/shared/optionsDrodown/utils";
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
       <ContentHeader title="DashBoard" lineColor="#F7931B">
-        <SelectInput option={months} onChange={() => {}} />
-        <SelectInput option={years} onChange={() => {}} />
+        <SelectInput option={[]} onChange={() => {}} />
+        <SelectInput option={[]} onChange={() => {}} />
       </ContentHeader>
     </Container>
   );
