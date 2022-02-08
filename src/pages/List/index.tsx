@@ -38,6 +38,10 @@ const List: React.FC<IRouteParams> = ({ match }) => {
   const [yearSelected, setYearSelected] = useState<string>(
     String(new Date().getFullYear() + 1)
   );
+  const [selectFrequency, setSelectedFrequency] = useState([
+    "recorrentes",
+    "eventual",
+  ]);
 
   const { type } = match.params;
 
@@ -52,6 +56,19 @@ const List: React.FC<IRouteParams> = ({ match }) => {
   const listData = useMemo(() => {
     return type === "entry-balance" ? gains : expenses;
   }, [type]);
+
+  const handleFrequencyClick = (frequency: string) => {
+    const alreadySelected = selectFrequency.findIndex(
+      (item) => item === frequency
+    );
+
+    if (alreadySelected >= 0) {
+      const filtered = selectFrequency.filter((item) => item !== frequency);
+      setSelectedFrequency(filtered);
+    } else {
+      setSelectedFrequency((prev) => [...prev, frequency]);
+    }
+  };
 
   useEffect(() => {
     const filteredData = listData.filter((item) => {
@@ -119,10 +136,22 @@ const List: React.FC<IRouteParams> = ({ match }) => {
         />
       </ContentHeader>
       <Filters>
-        <button type="button" className="tag-filter tag-filter-recurrent  ">
+        <button
+          type="button"
+          className={`tag-filter tag-filter-recurrent ${
+            selectFrequency.includes("recorrentes") && "tag-actived"
+          }`}
+          onClick={() => handleFrequencyClick("recorrente")}
+        >
           Recorrentes
         </button>
-        <button type="button" className="tag-filter tag-filter-eventual">
+        <button
+          type="button"
+          className={`tag-filter tag-filter-eventual ${
+            selectFrequency.includes("recorrentes") && "tag-actived"
+          }`}
+          onClick={() => handleFrequencyClick("eventual")}
+        >
           Eventuais
         </button>
       </Filters>
